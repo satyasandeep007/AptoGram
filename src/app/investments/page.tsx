@@ -61,13 +61,6 @@ const Investments: React.FC = () => {
       </div>
 
       <div className="mb-6 p-4 bg-gray-800 rounded-lg">
-        <h2 className="text-xl font-semibold mb-2">
-          Historical Data (Last 30 Days)
-        </h2>
-        <MarketAnalytics />
-      </div>
-
-      <div className="mb-6 p-4 bg-gray-800 rounded-lg">
         <h2 className="text-xl font-semibold mb-2">Balance</h2>
         <p className="text-2xl font-bold">
           {balance !== null ? `${balance} APT` : "Loading..."}
