@@ -40,3 +40,18 @@ export async function getAccountTransactions(accountAddress: any) {
     return [];
   }
 }
+
+export const getStakingPositions = async (accountAddress: string) => {
+  try {
+    // Example contract and method; replace with actual contract and method
+    const response: any = await aptos.getAccountModule({
+      accountAddress,
+      moduleName: "0x1::staking::StakingModule",
+    });
+    // Parse the response to extract positions
+    return response.data.positions; // Adjust based on actual response structure
+  } catch (error) {
+    console.error("Error fetching staking positions:", error);
+    return [];
+  }
+};
