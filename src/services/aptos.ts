@@ -1,10 +1,4 @@
-import {
-  Account,
-  AccountAddress,
-  Aptos,
-  AptosConfig,
-  Network,
-} from "@aptos-labs/ts-sdk";
+import { Aptos, AptosConfig, Network } from "@aptos-labs/ts-sdk";
 
 const APTOS_COIN = "0x1::aptos_coin::AptosCoin";
 const COIN_STORE = `0x1::coin::CoinStore<${APTOS_COIN}>`;
@@ -31,3 +25,18 @@ export const getAccountInfo = async (accountAddress: string) => {
 
   return fund;
 };
+
+export async function getAccountTransactions(accountAddress: any) {
+  try {
+    const transactions = await aptos.getAccountEventsByCreationNumber({
+      accountAddress,
+      creationNumber: 2,
+    });
+    console.log(transactions, " transactions");
+
+    return transactions;
+  } catch (error) {
+    console.error("Error fetching transactions:", error);
+    return [];
+  }
+}
