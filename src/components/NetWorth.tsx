@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getAccountBalance, getAccountInfo } from "../services/aptos";
+import { getAccountBalance } from "../services/aptos";
+import { getAPTPriceAndChange } from "@/services/coingecko";
 
 const Portfolio: React.FC<{ address: string }> = ({ address }) => {
   const [balance, setBalance] = useState<number | null>(null);
@@ -9,14 +10,15 @@ const Portfolio: React.FC<{ address: string }> = ({ address }) => {
     Array<{ symbol: string; price: number; amount: number }>
   >([]);
   const [totalNetWorth, setTotalNetWorth] = useState<number | null>(null);
+  const [priceChange, setPriceChange] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchPortfolio = async () => {
       const bal = await getAccountBalance(address);
-      const accountInfo = await getAccountInfo(address);
+      const _priceChange = await getAPTPriceAndChange();
 
       const coinData = [
-        { symbol: "APT", price: 7.5, amount: bal.balance }, // Example price
+        { symbol: "APT", price: _priceChange.price, amount: bal.balance },
         // Add more coins if applicable
       ];
 
@@ -28,6 +30,7 @@ const Portfolio: React.FC<{ address: string }> = ({ address }) => {
       setCoins(coinData);
       setBalance(bal.balance);
       setTotalNetWorth(totalUSD);
+      setPriceChange(_priceChange.change24h);
     };
 
     fetchPortfolio();
@@ -35,25 +38,45 @@ const Portfolio: React.FC<{ address: string }> = ({ address }) => {
 
   return (
     <div className="flowstate-container mx-auto p-6 max-w-lg bg-gray-900 rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold text-center text-white mb-4">
+      <h1 className="text-2xl font-bold text-center text-white mb-6">
         Aptos Portfolio
       </h1>
-      <div className="flowstate-box bg-gray-800 p-4 rounded-lg shadow-md mb-6">
-        <h2 className="text-xl font-semibold text-gray-300 mb-2">Net Worth</h2>
-        <p className="text-3xl font-bold text-green-400">
+      <div className="flowstate-box bg-gray-800 p-6 rounded-lg shadow-md mb-8">
+        <h2 className="text-xl font-semibold text-gray-300 mb-4">Net Worth</h2>
+        <p className="text-4xl font-bold text-green-400">
           {totalNetWorth !== null
             ? `$${totalNetWorth.toFixed(2)} USD`
             : "Loading..."}
         </p>
+        {priceChange !== null && (
+          <p
+            className={`text-lg mt-2 ${
+              priceChange >= 0 ? "text-green-500" : "text-red-500"
+            }`}
+          >
+            {priceChange >= 0 ? "+" : ""}
+            {priceChange.toFixed(2)}% (24h)
+          </p>
+        )}
       </div>
-      <div className="flowstate-box bg-gray-800 p-4 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold text-gray-300 mb-2">Coins</h2>
-        <ul className="space-y-2">
+      <div className="flowstate-box bg-gray-800 p-6 rounded-lg shadow-md">
+        <h2 className="text-xl font-semibold text-gray-300 mb-4">Coins</h2>
+        <ul className="space-y-4">
           {coins.map((coin, index) => (
-            <li key={index} className="flex justify-between text-white">
-              <span>{coin.symbol}</span>
-              <span>{coin.amount} APT</span>
-              <span>${(coin.price * coin.amount).toFixed(2)} USD</span>
+            <li
+              key={index}
+              className="flex justify-between items-center text-white"
+            >
+              <div className="text-lg font-semibold">{coin.symbol}</div>
+              <div className="text-right">
+                <div className="text-lg">{coin.amount} APT</div>
+                <div className="text-sm text-gray-400">
+                  ${coin.price.toFixed(2)} / APT
+                </div>
+                <div className="text-lg font-bold">
+                  ${(coin.price * coin.amount).toFixed(2)} USD
+                </div>
+              </div>
             </li>
           ))}
         </ul>
