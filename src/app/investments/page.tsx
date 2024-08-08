@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getAccountBalance, getStakingPositions } from "@/services/aptos";
+import MarketAnalytics from "@/components/MarketData";
 
 const Investments: React.FC = () => {
   const [price, setPrice] = useState<number | null>(null);
@@ -63,14 +64,7 @@ const Investments: React.FC = () => {
         <h2 className="text-xl font-semibold mb-2">
           Historical Data (Last 30 Days)
         </h2>
-        {marketData ? (
-          <div>
-            <p>Price Change (Last 30 Days):</p>
-            {/* Display historical data or graphs here */}
-          </div>
-        ) : (
-          <p>Loading historical data...</p>
-        )}
+        <MarketAnalytics />
       </div>
 
       <div className="mb-6 p-4 bg-gray-800 rounded-lg">

@@ -26,3 +26,15 @@ export async function getAPTPriceAndChange() {
     return { price: null, change24h: null };
   }
 }
+
+export const getHistoricalPrices = async (tokenId: string) => {
+  try {
+    const response = await axios.get(
+      `https://api.coingecko.com/api/v3/coins/${tokenId}/market_chart?vs_currency=usd&days=30`
+    );
+    return response.data.prices; // Array of [timestamp, price]
+  } catch (error) {
+    console.error("Error fetching historical prices:", error);
+    return [];
+  }
+};
