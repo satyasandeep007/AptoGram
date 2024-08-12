@@ -21,7 +21,6 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           chat_id: chatId,
           text: `Click the button below to view your transaction history.`,
-          parse_mode: "MarkdownV2",
           reply_markup: {
             inline_keyboard: [
               [
@@ -56,7 +55,6 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           chat_id: chatId,
           text: `Click the button below to check your investment portfolio.`,
-          parse_mode: "MarkdownV2",
           reply_markup: {
             inline_keyboard: [
               [
@@ -91,7 +89,6 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           chat_id: chatId,
           text: `Click the button below to view the latest market trends and analytics.`,
-          parse_mode: "MarkdownV2",
           reply_markup: {
             inline_keyboard: [
               [
