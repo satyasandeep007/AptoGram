@@ -20,13 +20,13 @@ export async function POST(req: NextRequest) {
         },
         body: JSON.stringify({
           chat_id: chatId,
-          text: `📈 *View Your Transactions* 📉\n\nClick the button below to view your transaction history.`,
+          text: `Click the button below to view your transaction history.`,
           parse_mode: "MarkdownV2",
           reply_markup: {
             inline_keyboard: [
               [
                 {
-                  text: "🔍 View Transactions",
+                  text: "View Transactions",
                   web_app: {
                     url: miniAppUrl,
                   },
@@ -55,13 +55,13 @@ export async function POST(req: NextRequest) {
         },
         body: JSON.stringify({
           chat_id: chatId,
-          text: `💼 *Investment Overview* 📊\n\nClick the button below to check your investment portfolio.`,
+          text: `Click the button below to check your investment portfolio.`,
           parse_mode: "MarkdownV2",
           reply_markup: {
             inline_keyboard: [
               [
                 {
-                  text: "📈 View Investments",
+                  text: "View Investments",
                   web_app: {
                     url: miniAppUrl,
                   },
@@ -90,13 +90,13 @@ export async function POST(req: NextRequest) {
         },
         body: JSON.stringify({
           chat_id: chatId,
-          text: `📊 *Market Analytics* 📉\n\nClick the button below to view the latest market trends and analytics.`,
+          text: `Click the button below to view the latest market trends and analytics.`,
           parse_mode: "MarkdownV2",
           reply_markup: {
             inline_keyboard: [
               [
                 {
-                  text: "📉 View Market Analytics",
+                  text: "View Market Analytics",
                   web_app: {
                     url: miniAppUrl,
                   },
