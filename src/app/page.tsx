@@ -1,5 +1,4 @@
 import NetWorth from "../components/NetWorth";
-import APR from "../components/APR";
 
 const HomePage = () => {
   const userAddress =
@@ -9,7 +8,6 @@ const HomePage = () => {
     <div className="py-auto mx-auto">
       <h1> </h1>
       <NetWorth address={userAddress} />
-      {/* <APR /> */}
     </div>
   );
 };
