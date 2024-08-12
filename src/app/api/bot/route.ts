@@ -4,6 +4,8 @@ const TELEGRAM_API_URL = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
+  console.log(body, "body");
+
   const { message } = body;
 
   if (message?.text === "/transactions") {
