@@ -77,7 +77,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ status: "ok" });
     }
 
-    if (message?.text === "/market-analytics") {
+    if (message?.text === "/analytics") {
       const chatId = message.chat.id;
       const miniAppUrl = "https://apto-gram.vercel.app/market-analytics"; // Your Mini App URL
 
