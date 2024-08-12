@@ -29,15 +29,15 @@ const PriceChangeChart: React.FC<{ tokenId: string }> = ({ tokenId }) => {
   }, [tokenId]);
 
   return (
-    <div className="p-4 bg-gray-900 rounded-lg shadow-lg">
-      <h2 className="text-xl font-bold text-white mb-4">
+    <div className="p-4 bg-white rounded-lg shadow-lg border border-gray-200">
+      <h2 className="text-xl font-bold text-black mb-4">
         Price Change (Last 30 Days)
       </h2>
       {data.length > 0 ? (
         <LineChart width={600} height={300} data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis />
+          <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+          <XAxis dataKey="date" stroke="#333" />
+          <YAxis stroke="#333" />
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="price" stroke="#8884d8" />

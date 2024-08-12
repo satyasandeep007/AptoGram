@@ -28,8 +28,8 @@ const Transactions: React.FC = () => {
   }
 
   return (
-    <div className="flowstate-container mx-auto p-6 max-w-md bg-gray-900 rounded-lg shadow-lg">
-      <h1 className="text-3xl font-extrabold text-center text-white mb-6">
+    <div className="flowstate-container mx-auto p-6 max-w-md bg-white rounded-lg shadow-lg border border-gray-200">
+      <h1 className="text-3xl font-extrabold text-center text-black mb-6">
         Transaction History
       </h1>
       {transactions.length > 0 ? (
@@ -37,7 +37,7 @@ const Transactions: React.FC = () => {
           {transactions.map((tx: any, index: number) => {
             // Determine type of transaction and amount color
             const isDeposit = tx.type === "0x1::coin::DepositEvent";
-            const amountColor = isDeposit ? "text-green-400" : "text-red-400";
+            const amountColor = isDeposit ? "text-green-500" : "text-red-500";
             const typeSymbol = isDeposit ? "+" : "-";
             const transactionDate = new Date(
               tx.transaction_block_height * 1000
@@ -49,7 +49,7 @@ const Transactions: React.FC = () => {
                 href={`https://explorer.aptoslabs.com/txn/${tx.transaction_version}?network=testnet`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105"
+                className="block p-4 bg-white rounded-lg shadow-md hover:bg-gray-100 transition-transform transform hover:scale-105 border border-gray-200"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span
@@ -58,9 +58,12 @@ const Transactions: React.FC = () => {
                     {typeSymbol} {parseInt(tx.data.amount) / 1e8} APT
                   </span>
                 </div>
-                <p className="text-sm text-gray-300 mb-1">
+                <p className="text-sm text-gray-600 mb-1">
                   <strong>Transaction Hash:</strong> {tx.transaction_version}
                 </p>
+                {/* <p className="text-sm text-gray-600">
+                  <strong>Date:</strong> {transactionDate}
+                </p> */}
               </a>
             );
           })}

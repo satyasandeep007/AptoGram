@@ -23,11 +23,13 @@ const MarketAnalytics: React.FC = () => {
   }, []);
 
   return (
-    <div className="p-6 max-w-lg mx-auto bg-gray-900 rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold text-white mb-4">Market Analytics</h1>
+    <div className="p-6 max-w-2xl mx-auto bg-white rounded-lg shadow-lg border border-gray-200">
+      <h1 className="text-2xl font-bold text-black mb-6 text-center">
+        Market Analytics
+      </h1>
       {marketData ? (
-        <div className="relative h-64">
-          <p className="text-white mb-2">Price Change (Last 30 Days):</p>
+        <div className="relative h-96">
+          <p className="text-black mb-2">Price Change (Last 30 Days):</p>
           <div className="absolute inset-0">
             <PriceChangeChart tokenId="aptos" />
           </div>

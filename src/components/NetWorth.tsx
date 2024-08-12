@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { getAccountBalance } from "../services/aptos";
 import { getAPTPriceAndChange } from "@/services/coingecko";
-import { FiCopy } from "react-icons/fi"; // Import the copy icon
+import { FiCopy } from "react-icons/fi";
 
 const Portfolio: React.FC<{ address: string }> = ({ address }) => {
   const [balance, setBalance] = useState<number | null>(null);
@@ -21,7 +21,6 @@ const Portfolio: React.FC<{ address: string }> = ({ address }) => {
 
       const coinData = [
         { symbol: "APT", price: _priceChange.price, amount: bal.balance },
-        // Add more coins if applicable
       ];
 
       const totalUSD = coinData.reduce(
@@ -44,27 +43,25 @@ const Portfolio: React.FC<{ address: string }> = ({ address }) => {
   };
 
   return (
-    <div className="flowstate-container mx-auto p-6 max-w-lg bg-gray-900 rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold text-center text-white mb-6">
+    <div className="flowstate-container mx-auto p-6 max-w-lg bg-white rounded-lg shadow-lg border border-gray-200">
+      <h1 className="text-2xl font-bold text-center text-black mb-6">
         Aptos Portfolio
       </h1>
-      <div className="flowstate-box bg-gray-800 p-4 rounded-lg shadow-md mb-6 flex justify-between items-center">
+      <div className="flowstate-box bg-white p-4 rounded-lg shadow-md mb-6 flex justify-between items-center border border-gray-200">
         <div>
-          <h2 className="text-lg font-semibold text-gray-300">
-            Wallet Address
-          </h2>
-          <p className="text-sm font-normal text-gray-400">{parsedAddress}</p>
+          <h2 className="text-lg font-semibold text-black">Wallet Address</h2>
+          <p className="text-sm font-normal text-gray-600">{parsedAddress}</p>
         </div>
         <button
           onClick={copyToClipboard}
-          className="text-gray-400 hover:text-gray-200 transition-colors"
+          className="text-gray-600 hover:text-gray-800 transition-colors"
         >
           <FiCopy size={20} />
         </button>
       </div>
-      <div className="flowstate-box bg-gray-800 p-6 rounded-lg shadow-md mb-8">
-        <h2 className="text-xl font-semibold text-gray-300 mb-4">Net Worth</h2>
-        <p className="text-4xl font-bold text-green-400">
+      <div className="flowstate-box bg-white p-6 rounded-lg shadow-md mb-8 border border-gray-200">
+        <h2 className="text-xl font-semibold text-black mb-4">Net Worth</h2>
+        <p className="text-4xl font-bold text-blue-500">
           {totalNetWorth !== null
             ? `$${totalNetWorth.toFixed(2)} USD`
             : "Loading..."}
@@ -80,22 +77,22 @@ const Portfolio: React.FC<{ address: string }> = ({ address }) => {
           </p>
         )}
       </div>
-      <div className="flowstate-box bg-gray-800 p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold text-gray-300 mb-4">Coins</h2>
+      <div className="flowstate-box bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <h2 className="text-xl font-semibold text-black mb-4">Coins</h2>
         <ul className="space-y-4">
           {coins.map((coin, index) => (
             <li
               key={index}
-              className="flex justify-between items-center text-white"
+              className="flex justify-between items-center text-black"
             >
               <div className="text-lg font-semibold">{coin.symbol}</div>
               <div className="text-right">
                 <div className="text-lg">{coin.amount} APT</div>
-                <div className="text-sm text-gray-400">
-                  ${coin?.price?.toFixed(2)} / APT
+                <div className="text-sm text-gray-600">
+                  ${coin.price.toFixed(2)} / APT
                 </div>
                 <div className="text-lg font-bold">
-                  ${(coin?.price * coin?.amount).toFixed(2)} USD
+                  ${(coin.price * coin.amount).toFixed(2)} USD
                 </div>
               </div>
             </li>
