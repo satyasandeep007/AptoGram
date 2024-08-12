@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { getAccountBalance } from "../services/aptos";
 import { getAPTPriceAndChange } from "@/services/coingecko";
+import { FiCopy } from "react-icons/fi"; // Import the copy icon
 
 const Portfolio: React.FC<{ address: string }> = ({ address }) => {
   const [balance, setBalance] = useState<number | null>(null);
@@ -11,6 +12,7 @@ const Portfolio: React.FC<{ address: string }> = ({ address }) => {
   >([]);
   const [totalNetWorth, setTotalNetWorth] = useState<number | null>(null);
   const [priceChange, setPriceChange] = useState<number | null>(null);
+  const parsedAddress = `${address.slice(0, 10)}.......${address.slice(-10)}`;
 
   useEffect(() => {
     const fetchPortfolio = async () => {
@@ -36,11 +38,30 @@ const Portfolio: React.FC<{ address: string }> = ({ address }) => {
     fetchPortfolio();
   }, [address]);
 
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(address);
+    alert("Address copied to clipboard!");
+  };
+
   return (
     <div className="flowstate-container mx-auto p-6 max-w-lg bg-gray-900 rounded-lg shadow-lg">
       <h1 className="text-2xl font-bold text-center text-white mb-6">
         Aptos Portfolio
       </h1>
+      <div className="flowstate-box bg-gray-800 p-4 rounded-lg shadow-md mb-6 flex justify-between items-center">
+        <div>
+          <h2 className="text-lg font-semibold text-gray-300">
+            Wallet Address
+          </h2>
+          <p className="text-sm font-normal text-gray-400">{parsedAddress}</p>
+        </div>
+        <button
+          onClick={copyToClipboard}
+          className="text-gray-400 hover:text-gray-200 transition-colors"
+        >
+          <FiCopy size={20} />
+        </button>
+      </div>
       <div className="flowstate-box bg-gray-800 p-6 rounded-lg shadow-md mb-8">
         <h2 className="text-xl font-semibold text-gray-300 mb-4">Net Worth</h2>
         <p className="text-4xl font-bold text-green-400">
@@ -71,10 +92,10 @@ const Portfolio: React.FC<{ address: string }> = ({ address }) => {
               <div className="text-right">
                 <div className="text-lg">{coin.amount} APT</div>
                 <div className="text-sm text-gray-400">
-                  ${coin.price.toFixed(2)} / APT
+                  ${coin?.price?.toFixed(2)} / APT
                 </div>
                 <div className="text-lg font-bold">
-                  ${(coin.price * coin.amount).toFixed(2)} USD
+                  ${(coin?.price * coin?.amount).toFixed(2)} USD
                 </div>
               </div>
             </li>
