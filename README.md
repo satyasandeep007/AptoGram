@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<br>
 
-## Getting Started
+![Brand](aptogram.png)
 
-First, run the development server:
+# AptoGram
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Description
+
+AptoGram: Seamlessly Manage Your Aptos Assets from your telegram app.
+
+<br>
+
+## Demo
+
+### Home Page
+
+![Home](portfolio.png)
+
+<br>
+
+Github : <a style="margin-bottom: 5px;" href="https://github.com/satyasandeep007/AptoGram" target="_blank"> Repo Link </a>
+
+Video : <a style="margin-bottom: 5px;" href="put the video like here" target="_blank"> Youtube Link </a>
+
+## Stack We Used
+
+1. Next JS
+2. Telegram Bot
+3. Tailwind CSS
+4. Aptos Chain
+5. Coingecko API
+
+## Steps to Run the Project
+
+1. Clone the repos
+
+```
+git clone https://github.com/satyasandeep007/AptoGram
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install the dependencies.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+ yarn
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Start the app using command
 
-## Learn More
+```
+yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Go to telegram and search for bot `@AptoGramBot` and click on start
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. You can see the mini app and invoke it and you can see the commands as well. Try playing with them.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br>
 
-## Deploy on Vercel
+## Meet Our Team
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<div style="display: flex; justify-content: space-between; align-items: center;">
+   <p style="flex:1">Shiva Kumar: </p>
+   <div style="flex:4; justify-content: space-between;">
+      <a href="https://www.linkedin.com/in/shivamangina/" target="_blank">
+      <img src=https://img.shields.io/badge/linkedin-%2300acee.svg?color=405DE6&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
+      </a>
+      <a href="https://twitter.com/shivakmangina" target="_blank">
+      <img src=https://img.shields.io/badge/twitter-%2300acee.svg?color=1DA1F2&style=for-the-badge&logo=twitter&logoColor=white alt=twitter style="margin-bottom: 5px;" />
+      </a>
+      <a href="https://www.instagram.com/shiva_mangina" target="_blank">
+      <img src=https://img.shields.io/badge/instagram-%ff5851db.svg?color=C13584&style=for-the-badge&logo=instagram&logoColor=white alt=instagram style="margin-bottom: 5px;" />
+      </a>
+      <a href="https://github.com/shivamangina" target="_blank">
+      <img src=https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
+      </a>
+   </div>
+</div>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<div style="display: flex; justify-content: space-between; align-items: center;">
+   <p style="flex:1">Sandeep Kumar: </p>
+   <div style="flex:4; justify-content: space-between;">
+      <a href="https://www.linkedin.com/in/satyasandeep" target="_blank">
+      <img src=https://img.shields.io/badge/linkedin-%2300acee.svg?color=405DE6&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
+      </a>
+      <a href="https://twitter.com/satyasandeep76" target="_blank">
+      <img src=https://img.shields.io/badge/twitter-%2300acee.svg?color=1DA1F2&style=for-the-badge&logo=twitter&logoColor=white alt=twitter style="margin-bottom: 5px;" />
+      </a>
+      <a href="https://www.instagram.com/satyasandeep007" target="_blank">
+      <img src=https://img.shields.io/badge/instagram-%ff5851db.svg?color=C13584&style=for-the-badge&logo=instagram&logoColor=white alt=instagram style="margin-bottom: 5px;" />
+      </a>
+      <a href="https://github.com/satyasandeep007" target="_blank">
+      <img src=https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
+      </a>
+   </div>
+</div>
