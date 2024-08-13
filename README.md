@@ -20,7 +20,7 @@ AptoGram: Seamlessly Manage Your Aptos Assets from your telegram app.
 
 Github : <a style="margin-bottom: 5px;" href="https://github.com/satyasandeep007/AptoGram" target="_blank"> Repo Link </a>
 
-Video : <a style="margin-bottom: 5px;" href="put the video like here" target="_blank"> Youtube Link </a>
+Video : <a style="margin-bottom: 5px;" href="https://youtu.be/Ip7WzDVs3Is" target="_blank"> Youtube Link </a>
 
 ## Stack We Used
 
